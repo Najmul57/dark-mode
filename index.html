@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ডার্ক মোড সহ HTML পৃষ্ঠা</title>
+    <style>
+        body {
+            background-color: #ffffff;
+            color: #000000;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        header, footer {
+            background-color: #f8f8f8;
+            padding: 20px;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        body.dark-mode {
+            background-color: #121212;
+            color: #ffffff;
+        }
+        header.dark-mode, footer.dark-mode {
+            background-color: #1f1f1f;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>ডার্ক মোড সহ HTML পৃষ্ঠা</h1>
+        <button id="toggleButton">ডার্ক মোড চালু করুন</button>
+    </header>
+    
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque et vero repudiandae doloremque consequuntur, ad nihil reprehenderit minus dolorum blanditiis maxime dolores iusto praesentium molestias cupiditate adipisci perspiciatis. Dolor quaerat, accusamus distinctio esse molestias saepe harum officia, debitis dolorum quasi ullam voluptas. Ullam atque vero blanditiis, sunt beatae commodi eos itaque laborum accusantium, laudantium dolore omnis veniam earum ratione magnam nemo laboriosam libero? Optio sequi temporibus minima odio magni quia fugiat, enim pariatur iste earum veniam, asperiores porro alias natus? Quibusdam a amet ullam. Veniam magni a ipsam quae numquam atque delectus iure quidem adipisci? Quia enim quos nulla ab!
+
+    <main>
+        <h2>স্বাগতম!</h2>
+        <p style="background-color: green;">এটি একটি ডার্ক মোড সহ HTML পৃষ্ঠার উদাহরণ। ডার্ক মোডে পরিবর্তন করতে উপরের বাটনে ক্লিক করুন।</p>
+
+        <h1 style="background-color: red;">najmul</h1>
+    </main>
+
+    <footer>
+        <p>&copy; ২০২৪ আমাদের ওয়েবসাইট।</p>
+    </footer>
+
+    <script>
+        const toggleButton = document.getElementById('toggleButton');
+        const body = document.body;
+        const header = document.querySelector('header');
+        const footer = document.querySelector('footer');
+
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            enableDarkMode();
+        }
+
+        toggleButton.addEventListener('click', function() {
+            if (localStorage.getItem('darkMode') !== 'enabled') {
+                enableDarkMode(); 
+            } else {
+                disableDarkMode(); 
+            }
+        });
+
+        function enableDarkMode() {
+            body.classList.add('dark-mode');
+            header.classList.add('dark-mode');
+            footer.classList.add('dark-mode');
+            toggleButton.textContent = 'ডার্ক মোড বন্ধ করুন';
+            localStorage.setItem('darkMode', 'enabled');
+        }
+
+        function disableDarkMode() {
+            body.classList.remove('dark-mode');
+            header.classList.remove('dark-mode');
+            footer.classList.remove('dark-mode');
+            toggleButton.textContent = 'ডার্ক মোড চালু করুন';
+            localStorage.setItem('darkMode', 'disabled'); 
+        }
+    </script>
+
+</body>
+</html>
